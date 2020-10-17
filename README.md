@@ -1,2 +1,2 @@
-# Katamary
-Katamary game using DirectX11
+# GameEngine
+
