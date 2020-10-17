@@ -1,15 +1,14 @@
-#include "Game.h"
-#include "KatamariGame.h"
+#include "GameCore/Game.h"
 
 
 int WINAPI main(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR pScmdline, int iCmdshow)
 {
-	KatamariGame* game;
+	Game* game;
 	bool result;
 
 
 	// Create the system object.
-	game = new KatamariGame;
+	game = new Game;
 	if (!game)
 	{
 		return 0;

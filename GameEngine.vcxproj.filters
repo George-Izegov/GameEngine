@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="GameCore\Game.cpp">
+      <Filter>GameCore</Filter>
+    </ClCompile>
+    <ClCompile Include="GameCore\Input.cpp">
+      <Filter>GameCore</Filter>
+    </ClCompile>
+    <ClCompile Include="GameCore\MeshBase.cpp">
+      <Filter>GameCore</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Colorshaderclass.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\d3dclass.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\depthshaderclass.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Graphics.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\rendertextureclass.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="ActorsCore\Camera.cpp">
+      <Filter>ActorsCore</Filter>
+    </ClCompile>
+    <ClCompile Include="ActorsCore\Light.cpp">
+      <Filter>ActorsCore</Filter>
+    </ClCompile>
+    <ClCompile Include="ActorsCore\MeshOBJ.cpp">
+      <Filter>ActorsCore</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Graphics\Shaders\depth.ps">
+      <Filter>Graphics\Shaders</Filter>
+    </None>
+    <None Include="Graphics\Shaders\depth.vs">
+      <Filter>Graphics\Shaders</Filter>
+    </None>
+    <None Include="Graphics\Shaders\PixelShader.ps">
+      <Filter>Graphics\Shaders</Filter>
+    </None>
+    <None Include="Graphics\Shaders\VertexShader.vs">
+      <Filter>Graphics\Shaders</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="GameCore">
+      <UniqueIdentifier>{f8ff28f6-ce68-4ad1-9d08-9f34cd3f7680}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics">
+      <UniqueIdentifier>{5e7b9855-5ab3-4134-ab71-f901ef3430d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ActorsCore">
+      <UniqueIdentifier>{8365e5dc-9ee7-4801-99c1-2db278e4089a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\Shaders">
+      <UniqueIdentifier>{02db89f3-45e3-41da-ab90-457afb1bac2d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GameCore\Game.h">
+      <Filter>GameCore</Filter>
+    </ClInclude>
+    <ClInclude Include="GameCore\Input.h">
+      <Filter>GameCore</Filter>
+    </ClInclude>
+    <ClInclude Include="GameCore\MeshBase.h">
+      <Filter>GameCore</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Colorshaderclass.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\d3dclass.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\depthshaderclass.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Graphics.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\rendertextureclass.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="ActorsCore\Camera.h">
+      <Filter>ActorsCore</Filter>
+    </ClInclude>
+    <ClInclude Include="ActorsCore\Light.h">
+      <Filter>ActorsCore</Filter>
+    </ClInclude>
+    <ClInclude Include="ActorsCore\Material.h">
+      <Filter>ActorsCore</Filter>
+    </ClInclude>
+    <ClInclude Include="ActorsCore\MeshOBJ.h">
+      <Filter>ActorsCore</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
