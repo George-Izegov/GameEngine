@@ -2,10 +2,10 @@
 #include "../GameCore/MeshBase.h"
 
 
-class ObjModel : public Mesh
+class MeshOBJ : public Mesh
 {
 public:
-	ObjModel(std::string, Material mat = M_Wood);
+	MeshOBJ(std::string, Material mat = M_Wood);
 	bool InitializeBuffers(ID3D11Device* device, DirectX::SimpleMath::Vector3 pos, float scale);
 public:
 	BoundingSphere* sphereColision;

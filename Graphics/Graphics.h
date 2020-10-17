@@ -46,7 +46,7 @@ protected:
 	ColorShaderClass* m_ColorShader;
 	DepthShaderClass* m_depthShader;
 	RenderTextureClass* m_renderTexture;
-	vector<ObjModel*> models;
+	vector<MeshOBJ*> models;
 };
 
 #endif

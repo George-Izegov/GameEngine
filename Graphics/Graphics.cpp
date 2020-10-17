@@ -60,7 +60,7 @@ bool Graphics::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 
 	for (int i = 0; i < 1; i++)
 	{
-		ObjModel* m_model = new ObjModel("Graphics/OBJ/seahorse.obj", M_Brass);
+		MeshOBJ* m_model = new MeshOBJ("Graphics/OBJ/seahorse.obj", M_Brass);
 		models.push_back(m_model);
 
 	}

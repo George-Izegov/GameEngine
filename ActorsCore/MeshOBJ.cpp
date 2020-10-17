@@ -4,7 +4,7 @@
 #include <iostream>
 
 
-ObjModel::ObjModel(std::string fName, Material mat)
+MeshOBJ::MeshOBJ(std::string fName, Material mat)
 {
 	fileName = fName;
 	_mat = mat;
@@ -12,7 +12,7 @@ ObjModel::ObjModel(std::string fName, Material mat)
 	
 }
 
-bool ObjModel::InitializeBuffers(ID3D11Device* device, DirectX::SimpleMath::Vector3 pos, float scale)
+bool MeshOBJ::InitializeBuffers(ID3D11Device* device, DirectX::SimpleMath::Vector3 pos, float scale)
 {
 	position = pos*scale;
 	if (fileName.size() < 1)
