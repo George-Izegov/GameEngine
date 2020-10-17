@@ -6,9 +6,8 @@
 
 #include <windows.h>
 #include "../Graphics/Graphics.h"
+#include "Timer.h"
 #include "Input.h"
-#include <ctime>
-#include <time.h>
 #include <iostream>
 
 #define PI 3.14159265358979323846
@@ -33,23 +32,6 @@ protected:
 	void SetCursorToCenter();
 	POINT GetMouseDelta();
 
-	void StartCounter()
-	{
-		LARGE_INTEGER li;
-		if (!QueryPerformanceFrequency(&li))
-			std::cout << "QueryPerformanceFrequency failed!\n";
-		PCFreq = double(li.QuadPart);
-
-		QueryPerformanceCounter(&li);
-		CounterStart = li.QuadPart;
-	}
-	double GetCounter()
-	{
-		LARGE_INTEGER li;
-		QueryPerformanceCounter(&li);
-		return double(li.QuadPart - CounterStart) / PCFreq;
-	}
-
 protected:
 	LPCWSTR m_applicationName;
 	HINSTANCE m_hinstance;
@@ -58,12 +40,9 @@ protected:
 	Input* m_Input;
 	Graphics* m_Graphics;
 
-	POINT prevMousePosition;
+	Timer* m_Timer;
 
-	double PCFreq = 0.0;
-	__int64 CounterStart = 0;
-
-	double dt;
+	double DeltaSeconds;
 
 };
 

@@ -43,6 +43,9 @@ bool D3DClass::Initialize(int screenWidth, int screenHeight, bool vsync, HWND hw
 	D3D11_VIEWPORT viewport;
 	float fieldOfView, screenAspect;
 
+	//save screen width and height for resetting
+	ScreenWidth = screenWidth;
+	ScreenHeight = screenHeight;
 
 	// Store the vsync setting.
 	m_vsync_enabled = vsync;
@@ -91,6 +94,8 @@ bool D3DClass::Initialize(int screenWidth, int screenHeight, bool vsync, HWND hw
 
 	// Now go through all the display modes and find the one that matches the screen width and height.
 	// When a match is found store the numerator and denominator of the refresh rate for that monitor.
+	numerator = 0;
+	denominator = 1;
 	for (i = 0; i < numModes; i++)
 	{
 		if (displayModeList[i].Width == (unsigned int)screenWidth)
@@ -149,16 +154,10 @@ bool D3DClass::Initialize(int screenWidth, int screenHeight, bool vsync, HWND hw
 	swapChainDesc.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
 
 	// Set the refresh rate of the back buffer.
-	if (m_vsync_enabled)
-	{
-		swapChainDesc.BufferDesc.RefreshRate.Numerator = numerator;
-		swapChainDesc.BufferDesc.RefreshRate.Denominator = denominator;
-	}
-	else
-	{
-		swapChainDesc.BufferDesc.RefreshRate.Numerator = 0;
-		swapChainDesc.BufferDesc.RefreshRate.Denominator = 1;
-	}
+	swapChainDesc.BufferDesc.RefreshRate.Numerator = numerator;
+	swapChainDesc.BufferDesc.RefreshRate.Denominator = denominator;
+
+
 
 	// Set the usage of the back buffer.
 	swapChainDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
@@ -487,8 +486,8 @@ void D3DClass::ResetViewport()
 {
 	D3D11_VIEWPORT viewport;
 	// Setup the viewport for rendering.
-	viewport.Width = (float)800;
-	viewport.Height = (float)600;
+	viewport.Width = (float) ScreenWidth;
+	viewport.Height = (float) ScreenHeight;
 	viewport.MinDepth = 0.0f;
 	viewport.MaxDepth = 1.0f;
 	viewport.TopLeftX = 0.0f;

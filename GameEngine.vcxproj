@@ -154,6 +154,7 @@
     <ClCompile Include="GameCore\Game.cpp" />
     <ClCompile Include="GameCore\Input.cpp" />
     <ClCompile Include="GameCore\MeshBase.cpp" />
+    <ClCompile Include="GameCore\Timer.cpp" />
     <ClCompile Include="Graphics\Colorshaderclass.cpp" />
     <ClCompile Include="Graphics\d3dclass.cpp" />
     <ClCompile Include="Graphics\depthshaderclass.cpp" />
@@ -176,6 +177,7 @@
     <ClInclude Include="GameCore\Game.h" />
     <ClInclude Include="GameCore\Input.h" />
     <ClInclude Include="GameCore\MeshBase.h" />
+    <ClInclude Include="GameCore\Timer.h" />
     <ClInclude Include="Graphics\Colorshaderclass.h" />
     <ClInclude Include="Graphics\d3dclass.h" />
     <ClInclude Include="Graphics\depthshaderclass.h" />

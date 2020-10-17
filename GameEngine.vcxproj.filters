@@ -35,6 +35,9 @@
     <ClCompile Include="ActorsCore\MeshOBJ.cpp">
       <Filter>ActorsCore</Filter>
     </ClCompile>
+    <ClCompile Include="GameCore\Timer.cpp">
+      <Filter>GameCore</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -101,6 +104,9 @@
     </ClInclude>
     <ClInclude Include="ActorsCore\MeshOBJ.h">
       <Filter>ActorsCore</Filter>
+    </ClInclude>
+    <ClInclude Include="GameCore\Timer.h">
+      <Filter>GameCore</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -57,6 +57,9 @@ private:
 	DirectX::SimpleMath::Matrix m_projectionMatrix;
 	DirectX::SimpleMath::Matrix m_worldMatrix;
 	DirectX::SimpleMath::Matrix m_orthoMatrix;
+
+	int ScreenWidth;
+	int ScreenHeight;
 	
 };
 

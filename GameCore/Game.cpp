@@ -17,12 +17,11 @@ Game::~Game()
 
 bool Game::Initialize()
 {
-	int screenWidth, screenHeight;
 	bool result;
 
 	// Initialize the width and height of the screen to zero before sending the variables into the function.
-	screenWidth = 0;
-	screenHeight = 0;
+	int screenWidth = 0;
+	int screenHeight = 0;
 
 	// Initialize the windows api.
 	InitializeWindows(screenWidth, screenHeight);
@@ -50,6 +49,9 @@ bool Game::Initialize()
 	{
 		return false;
 	}
+
+	// Create timer for counting frame time
+	m_Timer = new Timer;
 
 	SetCursorToCenter();
 
@@ -127,13 +129,8 @@ bool Game::Frame()
 	// track mouse cursor
 	if (m_Input)
 	{
-		prevMousePosition = m_Input->MousePosition;
-		GetCursorPos(&m_Input->MousePosition);
-
 		m_Input->MouseDelta = GetMouseDelta();
 		SetCursorToCenter();
-
-		ShowCursor(false);
 	}
 
 	Camera* camera = m_Graphics->GetCamera();
@@ -144,8 +141,8 @@ bool Game::Frame()
 	float speed = 3.0f;
 	float rotSpeed = 0.003f;
 
-	dt = GetCounter();
-	StartCounter();
+	DeltaSeconds = m_Timer->GetCounter();
+	m_Timer->StartCounter();
 
 	// Check if the user pressed escape and wants to exit the application.
 	if (m_Input->IsKeyDown(27)) // ESC key
@@ -155,22 +152,22 @@ bool Game::Frame()
 
 	if (m_Input->IsKeyDown(68)) //d key
 	{
-		dCameraPos += camera->GetRightVector() * speed * dt;
+		dCameraPos += camera->GetRightVector() * speed * DeltaSeconds;
 	}
 
 	if (m_Input->IsKeyDown(65)) //a key
 	{
-		dCameraPos -= camera->GetRightVector() * speed * dt;
+		dCameraPos -= camera->GetRightVector() * speed * DeltaSeconds;
 	}
 
 	if (m_Input->IsKeyDown(87)) //w key
 	{
-		dCameraPos += camera->GetForwardVector() * speed * dt;
+		dCameraPos += camera->GetForwardVector() * speed * DeltaSeconds;
 	}
 
 	if (m_Input->IsKeyDown(83)) //s key
 	{
-		dCameraPos -= camera->GetForwardVector() * speed * dt;
+		dCameraPos -= camera->GetForwardVector() * speed * DeltaSeconds;
 	}
 
 	if (m_Input->IsKeyDown(32)) //space key
@@ -182,7 +179,7 @@ bool Game::Frame()
 		float deltaXMouse = m_Input->MouseDelta.x;
 		float deltaYMouse = m_Input->MouseDelta.y;
 
-		if( dt < INFINITY )
+		if( DeltaSeconds < INFINITY )
 			dCameraRot += {static_cast<float>(rotSpeed* deltaYMouse), static_cast<float>(rotSpeed * deltaXMouse) * -1, 0.0f};
 	}
 
@@ -281,9 +278,9 @@ void Game::InitializeWindows(int& screenWidth, int& screenHeight)
 	}
 	else
 	{
-		// If windowed then set it to 800x800 resolution.
-		screenWidth = 800;
-		screenHeight = 600;
+		// If windowed then set it resolution.
+		screenWidth = 1280;
+		screenHeight = 720;
 
 		// Place the window in the middle of the screen.
 		posX = (GetSystemMetrics(SM_CXSCREEN) - screenWidth) / 2;
@@ -301,7 +298,7 @@ void Game::InitializeWindows(int& screenWidth, int& screenHeight)
 	SetFocus(m_hwnd);
 
 	// Hide the mouse cursor.
-	ShowCursor(true);
+	ShowCursor(false);
 
 	return;
 }

@@ -21,6 +21,7 @@ public:
 
 public:
 	POINT MousePosition;
+	// сдвиг позиции мыши по сравнению с предыдущим фреймом
 	POINT MouseDelta;
 private:
 	bool m_keys[256];
